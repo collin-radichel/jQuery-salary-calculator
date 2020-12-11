@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="client.js"></script>
     <script src="jquery-3.5.1.min.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jQuery Salary Calculator</title>
 </head>
-<body>
+
+<body class="container">
+    <header class="jumbotron">jQuery Salary Calculator</header>
+    <h1>Add Employee</h1>
+    <div class="input-group mb-3">
+        <span class="input-group-text">First Name</span>
+        <input type="text" class="form-control" id="firstNameIn">
+        <span class="input-group-text">Last Name</span>
+        <input type="text" class="form-control" id="lastNameIn">
+        <span class="input-group-text">ID</span>
+        <input type="number" class="form-control" id="idIn">
+        <span class="input-group-text">Job Title</span>
+        <input type="text" class="form-control" id="jobTitleIn">
+        <span class="input-group-text">Annual Salary</span>
+        <input type="number" class="form-control" id="annualSalaryIn">
+        <button class="btn btn-success" id="addEmployee">Submit</button>
+    </div>
+
+    
+    <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th class="col">First Name</th>
+            <th class="col">Last Name</th>
+            <th class="col">ID</th>
+            <th class="col">Job Title</th>
+            <th class="col">Annual Salary</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+      </table>
     
 </body>
+
 </html>
