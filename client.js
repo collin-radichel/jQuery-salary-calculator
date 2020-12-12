@@ -14,12 +14,11 @@ function handleReady() {
 
     //click listeners
     $('#addEmployee').on('click', handleSubmit);
-    $('#deleteButton').on('click', handleDelete);
-
 }
 
 function renderToDom() {
     $('#table-body').empty();
+
 
     //loop over employees array and append to tbody
     for (let employee of employees) {
@@ -35,10 +34,11 @@ function renderToDom() {
                 <td>${employee.annualSalary}</td>
                 <td> <button id = "deleteButton" class = "btn btn-danger" > Delete </button> </td>
             </tr>`);
+        //put on DOM
         $('#table-body').append(employeeRow);
     }
 
-    //put on DOM
+    $('#deleteButton').on('click', handleDelete);
 
 }
 
@@ -64,10 +64,25 @@ function handleSubmit() {
 
 }
 
-handleDelete(){
+//function to delete employee from the table
+function handleDelete(){
     console.log('clicked Delete');
+
+    //used jQuery selector .closest to target the closest table row to the delete button
+    $(this).closest('tr').remove();
+
 }
 
+
+//function to get the sum of annual salaries
+function sumOfAnnualSalaries(array){
+console.log('inAnnualSalaries with:', array);
+     let annualSalaryTotal = 0;
+    array.forEach(employee => {
+        annualSalaryTotal += employee.annualSalary;
+    });
+    return annualSalaryTotal;
+}
 
 function clearInputs() {
     $('#firstNameIn').val('');
