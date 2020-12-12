@@ -14,6 +14,7 @@ function handleReady() {
 
     //click listeners
     $('#addEmployee').on('click', handleSubmit);
+    $('#deleteButton').on('click', handleDelete);
 
 }
 
@@ -22,7 +23,6 @@ function renderToDom() {
 
     //loop over employees array and append to tbody
     for (let employee of employees) {
-
 
         //make an employee row in the tbody
 
@@ -33,6 +33,7 @@ function renderToDom() {
                 <td>${employee.id}</td>
                 <td>${employee.jobTitle}</td>
                 <td>${employee.annualSalary}</td>
+                <td> <button id = "deleteButton" class = "btn btn-danger" > Delete </button> </td>
             </tr>`);
         $('#table-body').append(employeeRow);
     }
@@ -61,6 +62,10 @@ function handleSubmit() {
     renderToDom();
     clearInputs();
 
+}
+
+handleDelete(){
+    console.log('clicked Delete');
 }
 
 
