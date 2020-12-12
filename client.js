@@ -14,11 +14,12 @@ function handleReady() {
 
     //click listeners
     $('#addEmployee').on('click', handleSubmit);
+    $('#table-body').on('click', "#deleteButton", handleDelete);
 }
 
 function renderToDom() {
     $('#table-body').empty();
-
+    
 
     //loop over employees array and append to tbody
     for (let employee of employees) {
@@ -38,12 +39,32 @@ function renderToDom() {
         $('#table-body').append(employeeRow);
     }
 
-    $('#deleteButton').on('click', handleDelete);
+
+    //call sumOfAnnualSalaries
+    sumOfAnnualSalaries(employees);
+    
+    
 
 }
 
 function handleSubmit() {
+
+    $('#salarySum').empty();
+
     console.log('clicked Submit');
+
+    // if (
+    //     $('#firstNameIn').val() === "" ||
+    //     $('#lastNameIn').val() === "" ||
+    //     $('#idIn').val() === "" ||
+    //     $('#jobTitleIn').val() === "" ||
+    //     $('#annualSalaryIn').val() === ""
+
+    // ) {
+    //     alert(
+
+    //     )
+    // }
 
     let newEmployee = {
 
@@ -55,13 +76,16 @@ function handleSubmit() {
 
     }
 
+    
     //check if I got the right values
     console.log(newEmployee);
     employees.push(newEmployee);
 
+    
     renderToDom();
     clearInputs();
 
+    
 }
 
 //function to delete employee from the table
@@ -69,21 +93,35 @@ function handleDelete(){
     console.log('clicked Delete');
 
     //used jQuery selector .closest to target the closest table row to the delete button
-    $(this).closest('tr').remove();
+    $(this).parent().parent().remove();
+
 
 }
 
 
-//function to get the sum of annual salaries
+// function to get the sum of annual salaries
+
 function sumOfAnnualSalaries(array){
 console.log('inAnnualSalaries with:', array);
+
      let annualSalaryTotal = 0;
     array.forEach(employee => {
-        annualSalaryTotal += employee.annualSalary;
+        annualSalaryTotal += parseFloat(employee.annualSalary);
     });
-    return annualSalaryTotal;
+
+    // Divide annualSalaryTotal by 12 to get monthlySalaryTotal, then append to the DOM
+    let monthlySalaryTotal = annualSalaryTotal / 12;
+    $('#salarySum').append(`
+            <p> Total Monthly Costs: ${monthlySalaryTotal}<p>
+        `)
+
+    // if monthly salary costs exceed 20000, turn the background red
+    if (monthlySalaryTotal >= 20000) {
+            $('#salarySum').addClass('totalTooHigh');
+        }
 }
 
+//function to clear input fields after a user hits submit
 function clearInputs() {
     $('#firstNameIn').val('');
     $('#lastNameIn').val('');
