@@ -4,6 +4,7 @@
 ## Screen Shot
 
 ![jQuery Salary Calculator Screenshot](https://i.imgur.com/cvYdQ1D.png)
+![jQuery Salary Calculator Screenshot #2](https://i.imgur.com/mr9rN6g.png)
 
 ## Usage
 
