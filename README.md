@@ -3,7 +3,7 @@
 
 ## Screen Shot
 
-![image](jQuery Salary Calculator Screenshot.png)
+[Imgur](https://i.imgur.com/cvYdQ1D.png)
 
 ## Usage
 
