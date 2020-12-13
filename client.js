@@ -53,18 +53,19 @@ function handleSubmit() {
 
     console.log('clicked Submit');
 
-    // if (
-    //     $('#firstNameIn').val() === "" ||
-    //     $('#lastNameIn').val() === "" ||
-    //     $('#idIn').val() === "" ||
-    //     $('#jobTitleIn').val() === "" ||
-    //     $('#annualSalaryIn').val() === ""
+    if (
+        $('#firstNameIn').val() === "" ||
+        $('#lastNameIn').val() === "" ||
+        $('#idIn').val() === "" ||
+        $('#jobTitleIn').val() === "" ||
+        $('#annualSalaryIn').val() === ""
 
-    // ) {
-    //     alert(
-
-    //     )
-    // }
+    ) {
+        Swal.fire(
+            `Please fill in all inputs<br>
+             before you submit.`
+        )
+    } else {
 
     let newEmployee = {
 
@@ -84,7 +85,7 @@ function handleSubmit() {
     
     renderToDom();
     clearInputs();
-
+    }
     
 }
 
@@ -112,7 +113,7 @@ console.log('inAnnualSalaries with:', array);
     // Divide annualSalaryTotal by 12 to get monthlySalaryTotal, then append to the DOM
     let monthlySalaryTotal = annualSalaryTotal / 12;
     $('#salarySum').append(`
-            <p> Total Monthly Costs: ${monthlySalaryTotal}<p>
+            <p> Total Monthly Costs: ${monthlySalaryTotal.toFixed(2)}<p>
         `)
 
     // if monthly salary costs exceed 20000, turn the background red
