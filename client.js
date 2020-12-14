@@ -14,7 +14,7 @@ function handleReady() {
 
     //click listeners
     $('#addEmployee').on('click', handleSubmit);
-    $('#table-body').on('click', "#deleteButton", handleDelete);
+    $('#table-body').on('click', ".deleteButton", handleDelete);
 }
 
 function renderToDom() {
@@ -32,8 +32,8 @@ function renderToDom() {
                 <td>${employee.lastName}</td>
                 <td>${employee.id}</td>
                 <td>${employee.jobTitle}</td>
-                <td>${employee.annualSalary}</td>
-                <td> <button id = "deleteButton" class = "btn btn-danger" > Delete </button> </td>
+                <td>$${employee.annualSalary}</td>
+                <td> <button class = "btn btn-danger deleteButton" > Delete </button> </td>
             </tr>`);
         //put on DOM
         $('#table-body').append(employeeRow);
@@ -65,6 +65,7 @@ function handleSubmit() {
             `Please fill in all inputs<br>
              before you submit.`
         )
+        renderToDom();
     } else {
 
     let newEmployee = {
@@ -96,7 +97,6 @@ function handleDelete(){
     //used jQuery selector .closest to target the closest table row to the delete button
     $(this).parent().parent().remove();
 
-
 }
 
 
@@ -113,7 +113,7 @@ console.log('inAnnualSalaries with:', array);
     // Divide annualSalaryTotal by 12 to get monthlySalaryTotal, then append to the DOM
     let monthlySalaryTotal = annualSalaryTotal / 12;
     $('#salarySum').append(`
-            <p> Total Monthly Costs: ${monthlySalaryTotal.toFixed(2)}<p>
+            <p> Total Monthly Costs: $${monthlySalaryTotal.toFixed(2)}<p>
         `)
 
     // if monthly salary costs exceed 20000, turn the background red
