@@ -26,5 +26,7 @@ Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped m
 
 Thanks to my instructors Dane, Edan and Dev for their hard work teaching junior developers to code 
 
-## Support
-If you have suggestions or issues, please email me at [radichel.collin@gmail.com]
+## Questions? I would love to connect!
+Email me at - [radichel.collin@gmail.com](mailto:radichel.collin@gmail.com)
+OR
+Send me a message on [LinkedIn](https://www.linkedin.com/in/collin-radichel/)
